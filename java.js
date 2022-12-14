@@ -7,7 +7,20 @@ var d=Math.floor(Math.random() * 10);
 var e=Math.floor(Math.random() * 10);
 var f=Math.floor(Math.random() * 10);
 var res="https://www.23qb.net/book/";
- document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
+//document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
+  
+fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(res+a+b+c+d+e+f+"/")}`)
+                    .then(response => {
+                      if (response.ok) return response.json()
+                      throw new Error('Network response was not ok.')
+                    })
+                    .then(data => {
+                      if(nov==(data.contents)) {
+                        document.getElementById("pen").textContent="請稍等5~30秒";
+                        change();
+                      }
+                      else document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
+                    });
 }
 function op(){
   var x=document.getElementById("pen").textContent;
@@ -22,6 +35,15 @@ var f=Math.floor(Math.random() * 10);
   if(a>1)b=Math.floor(Math.random() * 4);
 var res="https://www.23qb.net/book/";
  document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
+  fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(res+a+b+c+d+e+f+"/")}`)
+                    .then(response => {
+                      if (response.ok) return response.json()
+                      throw new Error('Network response was not ok.')
+                    })
+                    .then(data => {
+                      if(nov==(data.contents)) change();
+                      else document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
+                    });
 }
 var a=Math.floor(Math.random() * 1)+1;
 var b=Math.floor(Math.random() * 10);
@@ -31,3 +53,11 @@ var e=Math.floor(Math.random() * 10);
 var f=Math.floor(Math.random() * 10);
 var res="https://www.23qb.net/book/";
 document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
+
+var nov;
+fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.23qb.net/book/223500/')}`)
+                    .then(response => {
+                      if (response.ok) return response.json()
+                      throw new Error('Network response was not ok.')
+                    })
+                    .then(data => nov=(data.contents));
