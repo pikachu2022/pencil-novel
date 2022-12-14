@@ -34,7 +34,7 @@ var e=Math.floor(Math.random() * 10);
 var f=Math.floor(Math.random() * 10);
   if(a>1)b=Math.floor(Math.random() * 4);
 var res="https://www.23qb.net/book/";
- document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
+ document.getElementById("pen").textContent="";
   fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(res+a+b+c+d+e+f+"/")}`)
                     .then(response => {
                       if (response.ok) return response.json()
