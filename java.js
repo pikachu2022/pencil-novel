@@ -7,8 +7,9 @@ var d=Math.floor(Math.random() * 10);
 var e=Math.floor(Math.random() * 10);
 var f=Math.floor(Math.random() * 10);
 var res="https://www.23qb.net/book/";
-document.getElementById("pen").textContent=" ";
-  
+  u+=1;
+document.getElementById("pen").textContent=u;
+
 fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(res+a+b+c+d+e+f+"/")}`)
                     .then(response => {
                       if (response.ok) return response.json()
@@ -41,7 +42,10 @@ var res="https://www.23qb.net/book/";
                       throw new Error('Network response was not ok.')
                     })
                     .then(data => {
-                      if(nov==(data.contents)) change();
+                      if(nov==(data.contents)) {
+                        u=0;
+                        change();
+                      }
                       else document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
                     });
 }
@@ -61,3 +65,4 @@ fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://www.23qb
                       throw new Error('Network response was not ok.')
                     })
                     .then(data => nov=(data.contents));
+var u;
