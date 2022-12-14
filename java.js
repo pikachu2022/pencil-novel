@@ -16,7 +16,7 @@ fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(res+a+b+c+d+e+f+"
                     })
                     .then(data => {
                       if(nov==(data.contents)) {
-                        document.getElementById("pen").textContent="請稍等5~30秒";
+                        //document.getElementById("pen").textContent="請稍等5~30秒";
                         change();
                       }
                       else document.getElementById("pen").textContent=res+a+b+c+d+e+f+"/";
